@@ -1,5 +1,135 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+    /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+    background-image: var(--backgroudg-image);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: var(--background-color);
+}
+
+.header {
+    block-size: 100vh;
+    min-block-size: 668px;
+    padding-inline: 10px;
+    position: relative;
+    display: grid;
+    align-content: space-evenly;
+    grid-template-columns: 1fr;
+}
+
+.header__symbol {
+    position: absolute;
+    right: 40px;
+    top: 16px;
+    font-weight: 400;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 139%; /* или 25px*/
+    color: var(--color);
+    text-transform: uppercase;
+}
+
+.header__symbol::after {
+    content: " ";
+    display: block;
+    inline-size: 9px;
+    block-size: 9px;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    right: -22px; /*  !!!!!!!  */
+    background-color: var(--color);
+    box-shadow: 0px 0px 4px 2px var(--color);
+}
+
+.header__theme-menu {
+    justify-self: end;
+}
+
+.header__theme-menu-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 13px;
+}
+
+.header__theme-menu-button {
+    padding-inline: 13px;
+    font-weight: 400;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 100%; /* или 18px */
+    color: var(--color);
+    background-color: transparent;
+    border: none;
+}
+
+.accent__title {
+    font-weight: 700;
+    font-size: 7.25rem;
+    line-height: 82.5%;
+    color: var(--accent-text-color);
+    text-shadow: 4px 4px 0px var(--color);
+}
+
+.highlighted__title {
+    font-weight: 700;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+    color: var(--title-color);
+    background-color: var(--title-bg);
+}
+
+.intro {
+    margin-block-start: 40px;
+    padding-inline: 10px;
+}
+
+.section__title {
+    margin-block-end: 20px;
+    font-weight: 700;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+    color: var(--color);
+}
+
+.cards__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.card__description {
+    margin-block-start: 10px;
+    font-weight: 400;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+    color: var(--main-text-color);
+}
+
+.card__description-link {
+    text-decoration: none;
+    text-shadow: 2px 2px var(--color);
+}
+
+.about {
+  margin-block-start: 50px;
+  padding-inline: 10px;
+}
+
+.advices {
+  margin-block-start: 50px;
+  padding-inline: 10px;
+}
+
+.highlighted__title-medium {
+   font-weight: 400;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+    color: var(--title-color);
+    background-color: var(--title-bg);
+}
+
+.galery {
+  margin-block-start: 50px;
+  padding-inline: 10px;
 }
