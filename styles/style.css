@@ -2,27 +2,57 @@
 
 .page {
     /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-    background-image: var(--backgroudg-image);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     background-color: var(--background-color);
 }
 
 .header {
-    block-size: 100vh;
+    /*  background-attachment: fixed;  */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: var(--backgroudg-image);
+    block-size: 100vh; /* одинаковые стили с подвалом!!!!!   */
     min-block-size: 668px;
-    padding-inline: 10px;
+    inline-size: 100vw;
     position: relative;
     display: grid;
-    align-content: space-evenly;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content 1fr;
+    align-items: center;
+}
+
+.decorated-zone {
+    padding: 10px;
+}
+
+.decorated-zone::before {
+    content: " ";
+    display: block;
+    inline-size: 25px;
+    block-size: 25px;
+    border-block-start: 1px solid #ff0070;
+    border-inline-end: 1px solid #ff0070;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.decorated-zone::after {
+    content: " ";
+    display: block;
+    inline-size: 25px;
+    block-size: 25px;
+    border-block-end: 1px solid #ff0070;
+    border-inline-start: 1px solid #ff0070;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
 }
 
 .header__symbol {
     position: absolute;
-    right: 40px;
-    top: 16px;
+    right: 38px;
+    top: 9px;
     font-weight: 400;
     font-size: 1.125rem; /* или 18px */
     line-height: 139%; /* или 25px*/
@@ -32,15 +62,15 @@
 
 .header__symbol::after {
     content: " ";
-    display: block;
+    display: inline-block;
     inline-size: 9px;
     block-size: 9px;
     border-radius: 50%;
     position: absolute;
     top: 8px;
-    right: -22px; /*  !!!!!!!  */
+    right: -20px; /*  !!!!!!!  */
     background-color: var(--color);
-    box-shadow: 0px 0px 4px 2px var(--color);
+    box-shadow: 0 0 4px 2px var(--color);
 }
 
 .header__theme-menu {
@@ -65,13 +95,25 @@
 
 .accent__title {
     font-weight: 700;
-    font-size: 7.25rem;
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     line-height: 82.5%;
     color: var(--accent-text-color);
+}
+
+.text-shadow-bold {
     text-shadow: 4px 4px 0px var(--color);
 }
 
-.highlighted__title {
+.header__description {
+    max-inline-size: 364px;
+}
+
+.content__section {
+    margin-block-start: 50px;
+    padding-inline: 10px;
+}
+
+.heading {
     font-weight: 700;
     font-size: 1.125rem; /* или 18px */
     line-height: 130%; /* или 23px*/
@@ -81,7 +123,6 @@
 
 .intro {
     margin-block-start: 40px;
-    padding-inline: 10px;
 }
 
 .section__title {
@@ -108,21 +149,18 @@
 
 .card__description-link {
     text-decoration: none;
-    text-shadow: 2px 2px var(--color);
-}
-
-.about {
-  margin-block-start: 50px;
-  padding-inline: 10px;
+    text-shadow: 2px 2px 0 var(--color);
 }
 
 .advices {
-  margin-block-start: 50px;
-  padding-inline: 10px;
 }
 
-.highlighted__title-medium {
-   font-weight: 400;
+.advices__subtitle {
+    margin-block-end: 20px;
+}
+
+.heading-medium {
+    font-weight: 400;
     font-size: 1.125rem; /* или 18px */
     line-height: 130%; /* или 23px*/
     color: var(--title-color);
@@ -130,6 +168,35 @@
 }
 
 .galery {
-  margin-block-start: 50px;
-  padding-inline: 10px;
+    margin-block-end: 40px;
+}
+
+.galery__list {
+    padding-block-start: 10px;
+    display: grid;
+    grid-auto-flow: row; /* или 1 колонка */
+    gap: 10px; /* почему нет отступов между картинками ??? */
+}
+
+.galery__images {
+    max-inline-size: 100%; /* ?????? */
+}
+
+.galery__image {
+    display: block;
+    inline-size: 100%;
+}
+
+.footer {
+    block-size: 100vb; /* одинаковые стили с header!!!!!   */
+    min-block-size: 668px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+}
+
+.text-shadow-lite {
+    text-shadow: 2px 2px 0px var(--color);
 }
