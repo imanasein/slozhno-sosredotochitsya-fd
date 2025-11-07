@@ -10,7 +10,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: var(--backgroudg-image);
+    background-image: var(--background-image);
     block-size: 100vh; /* одинаковые стили с подвалом!!!!!   */
     min-block-size: 668px;
     inline-size: 100vw;
@@ -105,24 +105,35 @@
 }
 
 .header__description {
+    display: block;
     max-inline-size: 364px;
+    justify-self: end;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+    font-weight: 700;
 }
 
-.content__section {
-    margin-block-start: 50px;
+.main {
+    padding-block: 40px;
     padding-inline: 10px;
+}
+
+.section-border {
+    margin-block-start: 50px;
 }
 
 .heading {
     font-weight: 700;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
-    color: var(--title-color);
-    background-color: var(--title-bg);
 }
 
-.intro {
-    margin-block-start: 40px;
+.card__title {
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+}
+
+.title-decor {
+    color: var(--title-color);
+    background-color: var(--title-bg);
 }
 
 .section__title {
@@ -133,10 +144,9 @@
     color: var(--color);
 }
 
-.cards__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+.cards__list {     /* может удалить это ????  */
+    display: grid;    /* может удалить это ????  */
+    grid-template-columns: 1fr;   /* может удалить это ????  */
 }
 
 .card__description {
@@ -147,44 +157,47 @@
     color: var(--main-text-color);
 }
 
+.cards-list-item:not(:last-child) {
+    margin-block-end: 20px;
+}
+
 .card__description-link {
     text-decoration: none;
     text-shadow: 2px 2px 0 var(--color);
 }
 
-.advices {
-}
-
-.advices__subtitle {
+.section__list-subtitle {
     margin-block-end: 20px;
+    font-size: 1.125rem; /* или 18px */
+    line-height: 130%; /* или 23px*/
+    font-weight: 700;
 }
 
 .heading-medium {
     font-weight: 400;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
-    color: var(--title-color);
-    background-color: var(--title-bg);
 }
 
-.galery {
-    margin-block-end: 40px;
+.galery__title {
+    margin-block-end: 10px;
+    font-size: 1.125rem;
+    line-height: 130%;
 }
 
 .galery__list {
-    padding-block-start: 10px;
     display: grid;
-    grid-auto-flow: row; /* или 1 колонка */
-    gap: 10px; /* почему нет отступов между картинками ??? */
+    grid-template-columns: 1fr;
+    gap: 10px; 
 }
 
-.galery__images {
-    max-inline-size: 100%; /* ?????? */
+.galery__list {
+    inline-size: 100%; /* ?????? */
 }
 
 .galery__image {
     display: block;
     inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
 }
 
 .footer {
@@ -192,11 +205,127 @@
     min-block-size: 668px;
     display: grid;
     grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
+    place-items: center;
     position: relative;
 }
 
 .text-shadow-lite {
     text-shadow: 2px 2px 0px var(--color);
+}
+
+@media (width >= 768px) {
+    .decorated-zone {
+        padding: 20px 20px 20px 0;
+    }
+
+    .header__symbol {
+        right: 48px;
+        top: 19px;
+    }
+
+    .decorated-zone::before {
+        top: 20px;
+        right: 20px;
+    }
+
+    .decorated-zone::after {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .main {
+        padding-block: 60px;
+        padding-inline: 20px;
+    }
+
+    .section-border {
+    margin-block-start: 80px;
+    }
+
+    .section {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+    }
+
+    .section__title {
+        grid-column: 1;
+    }
+
+    .section__list {
+        grid-column: 2 / 4;
+    }
+
+    .section-alternative {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .section-alternative__title {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+   
+    .section-alternative__list {
+        grid-row: 2 / 3;
+        grid-column: 1 / -1;
+    }
+
+    .galery__title {
+        margin-block-end: 20px;
+    }
+    .galery__list {
+        grid-template-columns: repeat(3, 1fr);      
+        grid-template-rows: repeat(3, auto);  
+        gap: 20px;
+    }
+
+    .galery__list-item:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .galery__list-item:nth-child(2) {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+    }
+
+    .galery__list-item:nth-child(3) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+    }
+
+    .galery__list-item:nth-child(4) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .galery__list-item:nth-child(5) {
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+    }
+}
+
+@media (width >= 1024px) {
+    .header__description {       
+        max-inline-size: 491px;
+    }
+
+    .header__theme-menu {
+        justify-self: center; 
+        align-self: self-start;
+    }
+
+    .header__theme-menu-list {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .section-alternative__list {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
 }

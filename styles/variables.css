@@ -5,6 +5,6 @@
     --main-text-color: #f1b2ce;
     --background-color: #000028;
     --title-bg: #ff0070;
-    --backgroudg-image: url('../images/cover-image-dark.png');
+    --background-image: url('../images/cover-image-dark.png');
     --font-size: 18px;   /* поменять в относ единицы */
 }
