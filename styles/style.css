@@ -1,19 +1,16 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
     /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
-    background-color: var(--background-color);
+    background-image: var(--background-image);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: var(--page-bg-color); /* его вообще не видно ???? */
 }
 
 .header {
-    /*  background-attachment: fixed;  */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: var(--background-image);
-    block-size: 100vh; /* одинаковые стили с подвалом!!!!!   */
+    block-size: 100vh;
     min-block-size: 668px;
-    inline-size: 100vw;
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
@@ -30,8 +27,8 @@
     display: block;
     inline-size: 25px;
     block-size: 25px;
-    border-block-start: 1px solid #ff0070;
-    border-inline-end: 1px solid #ff0070;
+    border-block-start: 1px solid var(--color);
+    border-inline-end: 1px solid var(--color);
     position: absolute;
     top: 10px;
     right: 10px;
@@ -42,8 +39,8 @@
     display: block;
     inline-size: 25px;
     block-size: 25px;
-    border-block-end: 1px solid #ff0070;
-    border-inline-start: 1px solid #ff0070;
+    border-block-end: 1px solid var(--color);
+    border-inline-start: 1px solid var(--color);
     position: absolute;
     bottom: 10px;
     left: 10px;
@@ -54,8 +51,8 @@
     right: 38px;
     top: 9px;
     font-weight: 400;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 139%; /* или 25px*/
+    font-size: 1.125rem;
+    line-height: 139%;
     color: var(--color);
     text-transform: uppercase;
 }
@@ -80,36 +77,53 @@
 .header__theme-menu-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 13px;
+    gap: 14px;
 }
 
 .header__theme-menu-button {
     padding-inline: 13px;
+    padding-block: 0 3px;
     font-weight: 400;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 100%; /* или 18px */
+    font-size: 1.125rem;
+    line-height: 100%;
     color: var(--color);
     background-color: transparent;
     border: none;
+}
+
+.header__theme-menu-button:hover {
+    border: 1px solid rgba(var(--color-rgb), 0.4);
+}
+
+.header__theme-menu-button:focus {
+    border: none;
+}
+
+.header__theme-menu-button:focus-visible {
+    border-bottom: 1px solid var(--color);
+}
+
+.header__theme-menu-button_active {
+    border: 1px solid var(--color);
 }
 
 .accent__title {
     font-weight: 700;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     line-height: 82.5%;
-    color: var(--accent-text-color);
+    color: var(--accent-color);
 }
 
 .text-shadow-bold {
-    text-shadow: 4px 4px 0px var(--color);
+    text-shadow: 4px 4px 0px var(--accent-shadow-color);
 }
 
 .header__description {
     display: block;
     max-inline-size: 364px;
     justify-self: end;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
+    font-size: 1.125rem;
+    line-height: 130%;
     font-weight: 700;
 }
 
@@ -127,8 +141,8 @@
 }
 
 .card__title {
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
+    font-size: 1.125rem;
+    line-height: 130%;
 }
 
 .title-decor {
@@ -139,37 +153,46 @@
 .section__title {
     margin-block-end: 20px;
     font-weight: 700;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
+    font-size: 1.125rem;
+    line-height: 130%;
     color: var(--color);
-}
-
-.cards__list {     /* может удалить это ????  */
-    display: grid;    /* может удалить это ????  */
-    grid-template-columns: 1fr;   /* может удалить это ????  */
 }
 
 .card__description {
     margin-block-start: 10px;
     font-weight: 400;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
+    font-size: 1.125rem;
+    line-height: 130%;
     color: var(--main-text-color);
 }
 
-.cards-list-item:not(:last-child) {
+.section__list-item:not(:last-child) {
     margin-block-end: 20px;
 }
 
 .card__description-link {
     text-decoration: none;
-    text-shadow: 2px 2px 0 var(--color);
+    text-shadow: 2px 2px 0 var(--accent-shadow-color);
+}
+
+.card__description-link:hover {
+    text-decoration-line: underline;
+    text-decoration-color: var(--main-text-color);
+}
+
+.card__description-link:focus {
+    outline: none;
+}
+
+.card__description-link:focus-visible {
+    border: 2px solid var(--main-text-color);
+    outline: none; /* проверить нужно ли или удалить ???? */
 }
 
 .section__list-subtitle {
     margin-block-end: 20px;
-    font-size: 1.125rem; /* или 18px */
-    line-height: 130%; /* или 23px*/
+    font-size: 1.125rem;
+    line-height: 130%;
     font-weight: 700;
 }
 
@@ -186,11 +209,7 @@
 .galery__list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px; 
-}
-
-.galery__list {
-    inline-size: 100%; /* ?????? */
+    gap: 10px;
 }
 
 .galery__image {
@@ -201,7 +220,7 @@
 }
 
 .footer {
-    block-size: 100vb; /* одинаковые стили с header!!!!!   */
+    block-size: 100vh; /* одинаковые стили с header!!!!!   */
     min-block-size: 668px;
     display: grid;
     grid-template-columns: 1fr;
@@ -210,12 +229,20 @@
 }
 
 .text-shadow-lite {
-    text-shadow: 2px 2px 0px var(--color);
+    text-shadow: 2px 2px 0px var(--accent-shadow-color);
 }
 
 @media (width >= 768px) {
     .decorated-zone {
-        padding: 20px 20px 20px 0;
+        padding: 20px;
+    }
+
+    .accent__title {
+        font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    }
+
+    .header__title {
+        margin-inline-start: -20px;
     }
 
     .header__symbol {
@@ -239,7 +266,7 @@
     }
 
     .section-border {
-    margin-block-start: 80px;
+        margin-block-start: 80px;
     }
 
     .section {
@@ -259,14 +286,14 @@
     .section-alternative {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        column-gap: 20px;
     }
 
     .section-alternative__title {
         grid-row: 1 / 2;
         grid-column: 1 / 2;
     }
-   
+
     .section-alternative__list {
         grid-row: 2 / 3;
         grid-column: 1 / -1;
@@ -276,8 +303,8 @@
         margin-block-end: 20px;
     }
     .galery__list {
-        grid-template-columns: repeat(3, 1fr);      
-        grid-template-rows: repeat(3, auto);  
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
         gap: 20px;
     }
 
@@ -308,12 +335,12 @@
 }
 
 @media (width >= 1024px) {
-    .header__description {       
+    .header__description {
         max-inline-size: 491px;
     }
 
     .header__theme-menu {
-        justify-self: center; 
+        justify-self: center;
         align-self: self-start;
     }
 
@@ -324,7 +351,7 @@
     }
 
     .section-alternative__list {
-        grid-template-rows: 1fr;
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }

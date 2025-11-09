@@ -1,10 +1,11 @@
 :root {
     --color: #ff0070;
+    --color-rgb: 255, 0, 112;
     --title-color: #000028;
-    --accent-text-color:  #db00ff;
-    --main-text-color: #f1b2ce;
-    --background-color: #000028;
     --title-bg: #ff0070;
+    --accent-color: #db00ff;
+    --accent-shadow-color: #ff0070;
+    --main-text-color: #f1b2ce;
+    --page-bg-color: #000028;
     --background-image: url('../images/cover-image-dark.png');
-    --font-size: 18px;   /* поменять в относ единицы */
 }
