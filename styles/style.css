@@ -5,7 +5,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-color: var(--page-bg-color); /* его вообще не видно ???? */
+    background-color: var(--page-bg-color, #000028);
 }
 
 .header {
@@ -27,8 +27,8 @@
     display: block;
     inline-size: 25px;
     block-size: 25px;
-    border-block-start: 1px solid var(--color);
-    border-inline-end: 1px solid var(--color);
+    border-block-start: 1px solid var(--color, #ff0070);
+    border-inline-end: 1px solid var(--color, #ff0070);
     position: absolute;
     top: 10px;
     right: 10px;
@@ -39,8 +39,8 @@
     display: block;
     inline-size: 25px;
     block-size: 25px;
-    border-block-end: 1px solid var(--color);
-    border-inline-start: 1px solid var(--color);
+    border-block-end: 1px solid var(--color, #ff0070);
+    border-inline-start: 1px solid var(--color, #ff0070);
     position: absolute;
     bottom: 10px;
     left: 10px;
@@ -51,9 +51,9 @@
     right: 38px;
     top: 9px;
     font-weight: 400;
-    font-size: 1.125rem;
+    font-size: var(--font-size, 1.125rem);
     line-height: 139%;
-    color: var(--color);
+    color: var(--color, #ff0070);
     text-transform: uppercase;
 }
 
@@ -66,8 +66,8 @@
     position: absolute;
     top: 8px;
     right: -20px; /*  !!!!!!!  */
-    background-color: var(--color);
-    box-shadow: 0 0 4px 2px var(--color);
+    background-color: var(--color, #ff0070);
+    box-shadow: 0 0 4px 2px var(--color, #ff0070);
 }
 
 .header__theme-menu {
@@ -84,9 +84,9 @@
     padding-inline: 13px;
     padding-block: 0 3px;
     font-weight: 400;
-    font-size: 1.125rem;
+    font-size: var(--font-size, 1.125rem);
     line-height: 100%;
-    color: var(--color);
+    color: var(--color, #ff0070);
     background-color: transparent;
     border: none;
 }
@@ -96,34 +96,36 @@
 }
 
 .header__theme-menu-button:focus {
-    border: none;
+    outline: none;
 }
 
 .header__theme-menu-button:focus-visible {
-    border-bottom: 1px solid var(--color);
+    border-bottom: 1px solid var(--color, #ff0070);
+    outline: none;
 }
 
 .header__theme-menu-button_active {
-    border: 1px solid var(--color);
+    pointer-events: none;
+    border: 1px solid var(--color, #ff0070);
 }
 
 .accent__title {
     font-weight: 700;
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
     line-height: 82.5%;
-    color: var(--accent-color);
+    color: var(--accent-color, #db00ff);
 }
 
 .text-shadow-bold {
-    text-shadow: 4px 4px 0px var(--accent-shadow-color);
+    text-shadow: 4px 4px 0px var(--accent-shadow-color, #ff0070);
 }
 
 .header__description {
     display: block;
     max-inline-size: 364px;
     justify-self: end;
-    font-size: 1.125rem;
-    line-height: 130%;
+    font-size: var(--font-size, 1.125rem);
+    line-height: var(--line-height, 130%);
     font-weight: 700;
 }
 
@@ -141,29 +143,29 @@
 }
 
 .card__title {
-    font-size: 1.125rem;
-    line-height: 130%;
+    font-size: var(--font-size, 1.125rem);
+    line-height: var(--line-height, 130%);
 }
 
 .title-decor {
-    color: var(--title-color);
-    background-color: var(--title-bg);
+    color: var(--title-color, #000028);
+    background-color: var(--title-bg, #ff0070);
 }
 
 .section__title {
     margin-block-end: 20px;
     font-weight: 700;
-    font-size: 1.125rem;
-    line-height: 130%;
-    color: var(--color);
+    font-size: var(--font-size, 1.125rem);
+    line-height: var(--line-height, 130%);
+    color: var(--color, #ff0070);
 }
 
 .card__description {
     margin-block-start: 10px;
     font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 130%;
-    color: var(--main-text-color);
+    font-size: var(--font-size, 1.125rem);
+    line-height: var(--line-height, 130%);
+    color: var(--main-text-color, #f1b2ce);
 }
 
 .section__list-item:not(:last-child) {
@@ -172,12 +174,12 @@
 
 .card__description-link {
     text-decoration: none;
-    text-shadow: 2px 2px 0 var(--accent-shadow-color);
+    text-shadow: 2px 2px 0 var(--accent-shadow-color, #ff0070);
 }
 
 .card__description-link:hover {
     text-decoration-line: underline;
-    text-decoration-color: var(--main-text-color);
+    text-decoration-color: var(--main-text-color, #f1b2ce);
 }
 
 .card__description-link:focus {
@@ -185,14 +187,14 @@
 }
 
 .card__description-link:focus-visible {
-    border: 2px solid var(--main-text-color);
-    outline: none; /* проверить нужно ли или удалить ???? */
+    border: 2px solid var(--main-text-color, #f1b2ce);
+    outline: none;
 }
 
 .section__list-subtitle {
     margin-block-end: 20px;
-    font-size: 1.125rem;
-    line-height: 130%;
+    font-size: var(--font-size, 1.125rem);
+    line-height: var(--line-height, 130%);
     font-weight: 700;
 }
 
@@ -202,8 +204,8 @@
 
 .galery__title {
     margin-block-end: 10px;
-    font-size: 1.125rem;
-    line-height: 130%;
+    font-size: var(--font-size, 1.125rem);
+    line-height: var(--line-height, 130%);
 }
 
 .galery__list {
@@ -217,6 +219,7 @@
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .footer {
@@ -229,7 +232,7 @@
 }
 
 .text-shadow-lite {
-    text-shadow: 2px 2px 0px var(--accent-shadow-color);
+    text-shadow: 2px 2px 0px var(--accent-shadow-color, #ff0070);
 }
 
 @media (width >= 768px) {
@@ -276,11 +279,11 @@
     }
 
     .section__title {
-        grid-column: 1;
+        grid-column: 1 / 2;
     }
 
     .section__list {
-        grid-column: 2 / 4;
+        grid-column: 2 / 3;
     }
 
     .section-alternative {
