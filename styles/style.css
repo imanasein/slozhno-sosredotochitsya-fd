@@ -89,10 +89,11 @@
     color: var(--color, #ff0070);
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-    border: 1px solid rgba(var(--color-rgb), 0.4);
+    outline: 1px solid rgba(var(--color-rgb), 0.4);
 }
 
 .header__theme-menu-button:focus {
@@ -178,8 +179,7 @@
 }
 
 .card__description-link:hover {
-    text-decoration-line: underline;
-    text-decoration-color: var(--main-text-color, #f1b2ce);
+    border-bottom: 2px solid var(--main-text-color, #f1b2ce);
 }
 
 .card__description-link:focus {
@@ -187,8 +187,7 @@
 }
 
 .card__description-link:focus-visible {
-    border: 2px solid var(--main-text-color, #f1b2ce);
-    outline: none;
+    outline: 1px solid var(--main-text-color, #f1b2ce);
 }
 
 .section__list-subtitle {
